@@ -1,14 +1,14 @@
 import { FieldSchema, ValueSchema } from '@ephox/boulder';
 import { Fun, Optional, Result } from '@ephox/katamari';
-import { BaseToolbarButton, BaseToolbarButtonApi, baseToolbarButtonFields, BaseToolbarButtonInstanceApi } from './ToolbarButton';
+import { BaseToolbarButton, BaseToolbarButtonSpec, baseToolbarButtonFields, BaseToolbarButtonInstanceApi } from './ToolbarButton';
 import {
-  BaseToolbarToggleButton, BaseToolbarToggleButtonApi, baseToolbarToggleButtonFields, BaseToolbarToggleButtonInstanceApi
+  BaseToolbarToggleButton, BaseToolbarToggleButtonSpec, baseToolbarToggleButtonFields, BaseToolbarToggleButtonInstanceApi
 } from './ToolbarToggleButton';
 
 export type ContextToolbarPosition = 'node' | 'selection' | 'line';
 export type ContextScope = 'node' | 'editor';
 
-interface ContextBarApi {
+interface ContextBarSpec {
   predicate?: (elem: Element) => boolean;
   position?: ContextToolbarPosition;
   scope?: ContextScope;
@@ -30,29 +30,29 @@ export interface ContextToggleButtonInstanceApi extends BaseToolbarToggleButtonI
 
 }
 
-export interface ContextButtonApi extends BaseToolbarButtonApi<ContextButtonInstanceApi> {
+export interface ContextButtonSpec extends BaseToolbarButtonSpec<ContextButtonInstanceApi> {
   type?: 'contextformbutton';
   primary?: boolean;
   onAction: (formApi: ContextFormInstanceApi, api: ContextButtonInstanceApi) => void;
 }
 
-export interface ContextFormLaunchButtonApi extends BaseToolbarButtonApi<BaseToolbarButtonInstanceApi> {
+export interface ContextFormLaunchButtonApi extends BaseToolbarButtonSpec<BaseToolbarButtonInstanceApi> {
   type: 'contextformbutton';
 }
 
-export interface ContextFormLaunchButton extends BaseToolbarButtonApi<BaseToolbarButtonInstanceApi> {
+export interface ContextFormLaunchButton extends BaseToolbarButton<BaseToolbarButtonInstanceApi> {
   type: 'contextformbutton';
 }
 
-export interface ContextFormLaunchToggleButtonApi extends BaseToolbarToggleButtonApi<BaseToolbarToggleButtonInstanceApi> {
+export interface ContextFormLaunchToggleButtonSpec extends BaseToolbarToggleButtonSpec<BaseToolbarToggleButtonInstanceApi> {
   type: 'contextformtogglebutton';
 }
 
-export interface ContextFormLaunchToggleButton extends BaseToolbarToggleButtonApi<BaseToolbarToggleButtonInstanceApi> {
+export interface ContextFormLaunchToggleButton extends BaseToolbarToggleButton<BaseToolbarToggleButtonInstanceApi> {
   type: 'contextformtogglebutton';
 }
 
-export interface ContextToggleButtonApi extends BaseToolbarToggleButtonApi<ContextToggleButtonInstanceApi> {
+export interface ContextToggleButtonSpec extends BaseToolbarToggleButtonSpec<ContextToggleButtonInstanceApi> {
   type?: 'contextformtogglebutton';
   onAction: (formApi: ContextFormInstanceApi, buttonApi: ContextToggleButtonInstanceApi) => void;
   primary?: boolean;
@@ -62,17 +62,17 @@ export interface ContextButton extends BaseToolbarButton<ContextButtonInstanceAp
   type?: 'contextformbutton';
   primary?: boolean;
   onAction: (formApi: ContextFormInstanceApi, buttonApi: ContextButtonInstanceApi) => void;
-  original: ContextButtonApi;
+  original: ContextButtonSpec;
 }
 
 export interface ContextToggleButton extends BaseToolbarToggleButton<ContextToggleButtonInstanceApi> {
   type?: 'contextformtogglebutton';
   primary?: boolean;
   onAction: (formApi: ContextFormInstanceApi, buttonApi: ContextToggleButtonInstanceApi) => void;
-  original: ContextToggleButtonApi;
+  original: ContextToggleButtonSpec;
 }
 
-export interface ContextToolbarApi extends ContextBarApi {
+export interface ContextToolbarSpec extends ContextBarSpec {
   type?: 'contexttoolbar';
   items: string;
 }
@@ -87,12 +87,12 @@ export interface ContextFormInstanceApi {
   getValue: () => string; // Maybe we need to support other data types?
 }
 
-export interface ContextFormApi extends ContextBarApi {
+export interface ContextFormSpec extends ContextBarSpec {
   type?: 'contextform';
   initValue?: () => string;
   label?: string;
-  launch?: ContextFormLaunchButtonApi | ContextFormLaunchToggleButtonApi;
-  commands: Array<ContextToggleButtonApi | ContextButtonApi>;
+  launch?: ContextFormLaunchButtonApi | ContextFormLaunchToggleButtonSpec;
+  commands: Array<ContextToggleButtonSpec | ContextButtonSpec>;
 }
 
 export interface ContextForm extends ContextBar {
@@ -152,6 +152,8 @@ const contextToolbarSchema = ValueSchema.objOf([
   FieldSchema.strictString('items')
 ].concat(contextBarFields));
 
-export const createContextToolbar = (spec: ContextToolbarApi): Result<ContextToolbar, ValueSchema.SchemaError<any>> => ValueSchema.asRaw<ContextToolbar>('ContextToolbar', contextToolbarSchema, spec);
+export const createContextToolbar = (spec: ContextToolbarSpec): Result<ContextToolbar, ValueSchema.SchemaError<any>> =>
+  ValueSchema.asRaw<ContextToolbar>('ContextToolbar', contextToolbarSchema, spec);
 
-export const createContextForm = (spec: ContextFormApi): Result<ContextForm, ValueSchema.SchemaError<any>> => ValueSchema.asRaw<ContextForm>('ContextForm', contextFormSchema, spec);
+export const createContextForm = (spec: ContextFormSpec): Result<ContextForm, ValueSchema.SchemaError<any>> =>
+  ValueSchema.asRaw<ContextForm>('ContextForm', contextFormSchema, spec);

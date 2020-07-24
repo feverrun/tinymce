@@ -1,23 +1,23 @@
 import {
-  AutocompleterApi,
+  AutocompleterSpec,
   Autocompleter,
   createAutocompleter,
   createAutocompleterItem,
   createSeparatorItem,
-  AutocompleterItemApi,
+  AutocompleterItemSpec,
   AutocompleterItem,
   AutocompleterContents,
-  SeparatorItemApi,
+  SeparatorItemSpec,
   SeparatorItem,
   AutocompleterInstanceApi
 } from '../components/content/Autocompleter';
 
 export {
-  AutocompleterApi,
+  AutocompleterSpec,
   Autocompleter,
-  AutocompleterItemApi,
+  AutocompleterItemSpec,
   AutocompleterItem,
-  SeparatorItemApi,
+  SeparatorItemSpec,
   SeparatorItem,
   AutocompleterContents,
   createAutocompleter,

@@ -1,48 +1,48 @@
 import {
   createToolbarButton,
   ToolbarButton,
-  ToolbarButtonApi,
+  ToolbarButtonSpec,
   ToolbarButtonInstanceApi,
   toolbarButtonSchema
 } from '../components/toolbar/ToolbarButton';
 import {
   createMenuButton,
   ToolbarMenuButton,
-  ToolbarMenuButtonApi,
+  ToolbarMenuButtonSpec,
   ToolbarMenuButtonInstanceApi
 } from '../components/toolbar/ToolbarMenuButton';
 import {
   createSplitButton,
   ToolbarSplitButton,
-  ToolbarSplitButtonApi,
+  ToolbarSplitButtonSpec,
   ToolbarSplitButtonInstanceApi
 } from '../components/toolbar/ToolbarSplitButton';
 import {
   createToggleButton,
   ToolbarToggleButton,
-  ToolbarToggleButtonApi,
+  ToolbarToggleButtonSpec,
   ToolbarToggleButtonInstanceApi
 } from '../components/toolbar/ToolbarToggleButton';
 import {
   createGroupToolbarButton,
   GroupToolbarButton,
-  GroupToolbarButtonApi,
+  GroupToolbarButtonSpec,
   GroupToolbarButtonInstanceApi
 } from '../components/toolbar/GroupToolbarButton';
 
 import {
   ContextToolbar,
-  ContextToolbarApi,
+  ContextToolbarSpec,
   ContextForm,
-  ContextFormApi,
+  ContextFormSpec,
   createContextToolbar,
   createContextForm,
   ContextFormInstanceApi,
   ContextButton,
-  ContextButtonApi,
+  ContextButtonSpec,
   ContextButtonInstanceApi,
   ContextToggleButton,
-  ContextToggleButtonApi,
+  ContextToggleButtonSpec,
   ContextToggleButtonInstanceApi,
   ContextToolbarPosition,
   ContextScope
@@ -50,43 +50,43 @@ import {
 
 export {
   ToolbarButton,
-  ToolbarButtonApi,
+  ToolbarButtonSpec,
   ToolbarButtonInstanceApi,
   createToolbarButton,
 
   ToolbarSplitButton,
-  ToolbarSplitButtonApi,
+  ToolbarSplitButtonSpec,
   ToolbarSplitButtonInstanceApi,
   createSplitButton,
 
   ToolbarMenuButton,
-  ToolbarMenuButtonApi,
+  ToolbarMenuButtonSpec,
   ToolbarMenuButtonInstanceApi,
   toolbarButtonSchema,
   createMenuButton,
 
   ToolbarToggleButton,
-  ToolbarToggleButtonApi,
+  ToolbarToggleButtonSpec,
   ToolbarToggleButtonInstanceApi,
   createToggleButton,
 
   createGroupToolbarButton,
   GroupToolbarButton,
-  GroupToolbarButtonApi,
+  GroupToolbarButtonSpec,
   GroupToolbarButtonInstanceApi,
 
   ContextToolbar,
   ContextToolbarPosition,
   ContextScope,
-  ContextToolbarApi,
+  ContextToolbarSpec,
   ContextFormInstanceApi,
   ContextForm,
-  ContextFormApi,
+  ContextFormSpec,
   ContextButton,
-  ContextButtonApi,
+  ContextButtonSpec,
   ContextButtonInstanceApi,
   ContextToggleButton,
-  ContextToggleButtonApi,
+  ContextToggleButtonSpec,
   ContextToggleButtonInstanceApi,
   createContextToolbar,
   createContextForm

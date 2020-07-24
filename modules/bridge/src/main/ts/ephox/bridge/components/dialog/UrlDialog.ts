@@ -1,6 +1,6 @@
 import { FieldSchema, ValueSchema } from '@ephox/boulder';
 import { Fun, Optional, Result } from '@ephox/katamari';
-import { dialogButtonFields, DialogNormalButton, DialogNormalButtonApi } from './Dialog';
+import { dialogButtonFields, DialogNormalButton, DialogNormalButtonSpec } from './Dialog';
 
 export interface UrlDialogInstanceApi {
   block: (msg: string) => void;
@@ -26,7 +26,7 @@ export type UrlDialogCancelHandler = (api: UrlDialogInstanceApi) => void;
 export type UrlDialogMessageHandler = (api: UrlDialogInstanceApi, message: UrlDialogMessage) => void;
 
 // Allow the same button structure as dialogs, but remove the ability to have submit buttons
-export interface UrlDialogButtonApi extends DialogNormalButtonApi {
+export interface UrlDialogButtonSpec extends DialogNormalButtonSpec {
   type: 'cancel' | 'custom';
 }
 
@@ -35,12 +35,12 @@ export interface UrlDialogButton extends DialogNormalButton {
   type: 'cancel' | 'custom';
 }
 
-export interface UrlDialogApi {
+export interface UrlDialogSpec {
   title: string;
   url: string;
   height?: number;
   width?: number;
-  buttons?: UrlDialogButtonApi[];
+  buttons?: UrlDialogButtonSpec[];
 
   // Gets fired when a custom button is clicked
   onAction?: UrlDialogActionHandler;
@@ -85,4 +85,5 @@ export const urlDialogSchema = ValueSchema.objOf([
   FieldSchema.defaultedFunction('onMessage', Fun.noop)
 ]);
 
-export const createUrlDialog = (spec: UrlDialogApi): Result<UrlDialog, ValueSchema.SchemaError<any>> => ValueSchema.asRaw('dialog', urlDialogSchema, spec);
+export const createUrlDialog = (spec: UrlDialogSpec): Result<UrlDialog, ValueSchema.SchemaError<any>> =>
+  ValueSchema.asRaw('dialog', urlDialogSchema, spec);

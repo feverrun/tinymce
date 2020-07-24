@@ -12,7 +12,6 @@ import { Optional } from '@ephox/katamari';
 
 import { ComposingConfigs } from '../alien/ComposingConfigs';
 import { formActionEvent } from '../general/FormEvents';
-import { Omit } from '../Omit';
 
 // import I18n from 'tinymce/core/api/util/I18n';
 

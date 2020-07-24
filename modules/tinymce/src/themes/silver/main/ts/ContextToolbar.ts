@@ -183,9 +183,10 @@ const register = (editor: Editor, registryContextToolbars, sink: AlloyComponent,
     });
   }));
 
-  type ContextToolbarButtonTypes = Toolbar.ToolbarButtonApi | Toolbar.ToolbarMenuButtonApi | Toolbar.ToolbarSplitButtonApi | Toolbar.ToolbarToggleButtonApi | Toolbar.GroupToolbarButtonApi;
+  type ContextToolbarButtonTypes = Toolbar.ToolbarButtonSpec | Toolbar.ToolbarMenuButtonSpec | Toolbar.ToolbarSplitButtonSpec | Toolbar.ToolbarToggleButtonSpec | Toolbar.GroupToolbarButtonSpec;
 
-  const buildContextToolbarGroups = (allButtons: Record<string, ContextToolbarButtonTypes>, ctx: Toolbar.ContextToolbar) => identifyButtons(editor, { buttons: allButtons, toolbar: ctx.items, allowToolbarGroups: false }, extras, Optional.some([ 'form:' ]));
+  const buildContextToolbarGroups = (allButtons: Record<string, ContextToolbarButtonTypes>, ctx: Toolbar.ContextToolbar) =>
+    identifyButtons(editor, { buttons: allButtons, toolbar: ctx.items, allowToolbarGroups: false }, extras, Optional.some([ 'form:' ]));
 
   const buildContextMenuGroups = (ctx: Toolbar.ContextForm, providers: UiFactoryBackstageProviders) => ContextForm.buildInitGroups(ctx, providers);
 
@@ -198,7 +199,9 @@ const register = (editor: Editor, registryContextToolbars, sink: AlloyComponent,
     // to scrolling or wrapping (default)
     const toolbarType = getToolbarMode(editor) === ToolbarMode.scrolling ? ToolbarMode.scrolling : ToolbarMode.default;
 
-    const initGroups = Arr.flatten(Arr.map(toolbars, (ctx) => ctx.type === 'contexttoolbar' ? buildContextToolbarGroups(allButtons, ctx) : buildContextMenuGroups(ctx, extras.backstage.shared.providers)));
+    const initGroups = Arr.flatten(Arr.map(toolbars, (ctx) =>
+      ctx.type === 'contexttoolbar' ? buildContextToolbarGroups(allButtons, ctx) : buildContextMenuGroups(ctx, extras.backstage.shared.providers)
+    ));
 
     return renderToolbar({
       type: toolbarType,

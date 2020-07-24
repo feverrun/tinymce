@@ -42,25 +42,6 @@ export interface ScriptLoaderSettings {
   referrerPolicy?: ReferrerPolicy;
 }
 
-export interface ScriptLoaderConstructor {
-  readonly prototype: ScriptLoader;
-  ScriptLoader: ScriptLoader;
-
-  new (): ScriptLoader;
-}
-
-interface ScriptLoader {
-  loadScript (url: string, success?: () => void, failure?: () => void): void;
-  loadScripts (url: string[], success?: () => void, failure?: (urls: string[]) => void): void;
-  isDone (url: string): boolean;
-  markDone (url: string): void;
-  add (url: string, success?: () => void, scope?: {}, failure?: () => void): void;
-  load (url: string, success?: () => void, scope?: {}, failure?: () => void): void;
-  remove (url: string);
-  loadQueue (success?: () => void, scope?: {}, failure?: (urls: string[]) => void): void;
-  _setReferrerPolicy (referrerPolicy: ReferrerPolicy): void;
-}
-
 const QUEUED = 0;
 const LOADING = 1;
 const LOADED = 2;
@@ -69,14 +50,14 @@ const FAILED = 3;
 class ScriptLoader {
   public static ScriptLoader = new ScriptLoader();
 
-  private settings: Partial<ScriptLoaderSettings>;
+  private settings: ScriptLoaderSettings;
   private states: Record<string, number> = {};
   private queue: string[] = [];
   private scriptLoadedCallbacks: Record<string, Array<{success: () => void; failure: () => void; scope: any}>> = {};
   private queueLoadedCallbacks: Array<{success: () => void; failure: (urls: string[]) => void; scope: any}> = [];
   private loading = 0;
 
-  public constructor(settings: Partial<ScriptLoaderSettings> = {}) {
+  public constructor(settings: ScriptLoaderSettings = {}) {
     this.settings = settings;
   }
 

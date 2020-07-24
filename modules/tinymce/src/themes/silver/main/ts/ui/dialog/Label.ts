@@ -12,7 +12,6 @@ import { UiFactoryBackstageShared } from '../../backstage/Backstage';
 
 import { ComposingConfigs } from '../alien/ComposingConfigs';
 import { RepresentingConfigs } from '../alien/RepresentingConfigs';
-import { Omit } from '../Omit';
 
 type LabelSpec = Omit<Types.Label.Label, 'type'>;
 

@@ -22,7 +22,6 @@ import { detectSize } from '../alien/FlatgridAutodetect';
 import { formActionEvent, formResizeEvent } from '../general/FormEvents';
 import * as ItemClasses from '../menus/item/ItemClasses';
 import { deriveCollectionMovement } from '../menus/menu/MenuMovement';
-import { Omit } from '../Omit';
 
 type CollectionSpec = Omit<Types.Collection.Collection, 'type'>;
 

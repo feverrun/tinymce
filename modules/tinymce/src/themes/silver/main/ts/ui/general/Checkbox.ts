@@ -11,12 +11,11 @@ import {
 } from '@ephox/alloy';
 import { Types } from '@ephox/bridge';
 import { Fun, Optional } from '@ephox/katamari';
+
 import { UiFactoryBackstageProviders } from '../../backstage/Backstage';
 import * as ReadOnly from '../../ReadOnly';
-
 import { ComposingConfigs } from '../alien/ComposingConfigs';
 import * as Icons from '../icons/Icons';
-import { Omit } from '../Omit';
 import { formChangeEvent } from './FormEvents';
 
 type CheckboxSpec = Omit<Types.Checkbox.Checkbox, 'type'>;

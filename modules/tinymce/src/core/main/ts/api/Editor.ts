@@ -6,7 +6,7 @@
  */
 
 import { Registry } from '@ephox/bridge';
-import { Arr, Optional } from '@ephox/katamari';
+import { Arr } from '@ephox/katamari';
 import * as EditorContent from '../content/EditorContent';
 import * as NodeType from '../dom/NodeType';
 import * as EditorRemove from '../EditorRemove';
@@ -35,7 +35,7 @@ import Formatter from './Formatter';
 import DomParser from './html/DomParser';
 import AstNode from './html/Node';
 import Schema from './html/Schema';
-import { create, Mode } from './Mode';
+import { create, EditorMode } from './Mode';
 import NotificationManager from './NotificationManager';
 import PluginManager, { Plugin } from './PluginManager';
 import * as Settings from './Settings';
@@ -185,7 +185,7 @@ class Editor implements EditorObservable {
    * @property mode
    * @type tinymce.EditorMode
    */
-  public mode: Mode;
+  public mode: EditorMode;
 
   /**
    * Sets the editor mode. For example: "design", "code" or "readonly".
@@ -226,7 +226,7 @@ class Editor implements EditorObservable {
   // Arguments set later, for example by InitContentBody.ts
   public annotator: Annotator;
   public bodyElement: HTMLElement;
-  public bookmark: Optional<{}>;
+  public bookmark: any; // Note: Intentionally any so as to not expose Optional
   public composing: boolean;
   public container: HTMLElement;
   public contentAreaContainer: HTMLElement;
@@ -444,7 +444,7 @@ class Editor implements EditorObservable {
    */
   public getParam <K extends keyof ParamTypeMap>(name: string, defaultVal: ParamTypeMap[K], type: K): ParamTypeMap[K];
   public getParam <K extends keyof EditorSettings>(name: K, defaultVal?: EditorSettings[K], type?: string): EditorSettings[K];
-  public getParam <T>(name: string, defaultVal: T, type: string): T;
+  public getParam <T>(name: string, defaultVal: T, type?: string): T;
   public getParam(name: string, defaultVal?: any, type?: string): any {
     return getParam(this, name, defaultVal, type);
   }

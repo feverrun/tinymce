@@ -15,9 +15,7 @@ import { UiFactoryBackstageProviders } from 'tinymce/themes/silver/backstage/Bac
 import { renderLabel } from 'tinymce/themes/silver/ui/alien/FieldLabeller';
 import * as Icons from 'tinymce/themes/silver/ui/icons/Icons';
 import * as ReadOnly from '../../ReadOnly';
-
 import { formChangeEvent } from '../general/FormEvents';
-import { Omit } from '../Omit';
 
 type SelectBoxSpec = Omit<Types.SelectBox.SelectBox, 'type'>;
 

@@ -6,23 +6,11 @@
  */
 
 import {
-  AddEventsBehaviour,
-  AlloyComponent,
-  AlloyEvents,
-  AlloyTriggers,
-  Behaviour,
-  Composing,
-  Form as AlloyForm,
-  Keying,
-  Receiving,
-  Representing,
-  SketchSpec,
-  Tabbar as AlloyTabbar,
-  TabbarTypes,
-  TabSection as AlloyTabSection,
-  Tabstopping
+  AddEventsBehaviour, AlloyComponent, AlloyEvents, AlloyTriggers, Behaviour, Composing, Form as AlloyForm, Keying, Receiving, Representing,
+  SketchSpec, Tabbar as AlloyTabbar, TabbarTypes, TabSection as AlloyTabSection, Tabstopping
 } from '@ephox/alloy';
 import { Objects } from '@ephox/boulder';
+import { Types } from '@ephox/bridge';
 import { Arr, Cell, Fun, Merger } from '@ephox/katamari';
 import { toValidValues } from 'tinymce/themes/silver/ui/general/FormValues';
 import { interpretInForm } from 'tinymce/themes/silver/ui/general/UiFactory';
@@ -30,8 +18,6 @@ import { UiFactoryBackstage } from '../../backstage/Backstage';
 import { setMode } from '../alien/DialogTabHeight';
 import { formTabChangeEvent } from '../general/FormEvents';
 import * as NavigableObject from '../general/NavigableObject';
-import { Types } from '@ephox/bridge';
-import { Omit } from '../Omit';
 
 const SendDataToSectionChannel = 'send-data-to-section';
 const SendDataToViewChannel = 'send-data-to-view';

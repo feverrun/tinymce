@@ -5,13 +5,13 @@ import { UiFactoryBackstageProviders } from 'tinymce/themes/silver/backstage/Bac
 import { renderChoiceItem } from '../item/build/ChoiceItem';
 import ItemResponse from '../item/ItemResponse';
 import * as MenuUtils from './MenuUtils';
-import { SingleMenuItemApi } from './SingleMenuTypes';
+import { SingleMenuItemSpec } from './SingleMenuTypes';
 
 type PartialMenuSpec = MenuUtils.PartialMenuSpec;
 
 export const createPartialChoiceMenu = (
   value: string,
-  items: SingleMenuItemApi[],
+  items: SingleMenuItemSpec[],
   onItemValueHandler: (itemValue: string) => void,
   columns: 'auto' | number,
   presets: Types.PresetTypes,
@@ -26,7 +26,7 @@ export const createPartialChoiceMenu = (
 };
 
 export const createChoiceItems = (
-  items: SingleMenuItemApi[],
+  items: SingleMenuItemSpec[],
   onItemValueHandler: (itemValue: string) => void,
   columns: 'auto' | number,
   itemPresets: Types.PresetItemTypes,

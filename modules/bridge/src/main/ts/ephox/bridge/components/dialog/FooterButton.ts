@@ -1,12 +1,12 @@
 import { FieldPresence, FieldSchema, ValueSchema } from '@ephox/boulder';
 import { Id, Optional } from '@ephox/katamari';
-import { DialogToggleMenuItem as DialogToggleMenuItemType, DialogToggleMenuItemApi, dialogToggleMenuItemSchema } from './ToggleMenuItem';
+import { DialogToggleMenuItem as DialogToggleMenuItemType, DialogToggleMenuItemSpec, dialogToggleMenuItemSchema } from './ToggleMenuItem';
 
-export type DialogMenuButtonItemTypes = DialogToggleMenuItemApi;
+export type DialogMenuButtonItemTypes = DialogToggleMenuItemSpec;
 export type DialogToggleMenuItem = DialogToggleMenuItemType;
 
 // Note: This interface doesn't extend from a common button interface as this is only a configuration that specifies a button, but it's not by itself a button.
-interface BaseDialogButtonApi {
+interface BaseDialogButtonSpec {
   name?: string;
   align?: 'start' | 'end';
   primary?: boolean;
@@ -14,12 +14,12 @@ interface BaseDialogButtonApi {
   icon?: string;
 }
 
-export interface DialogNormalButtonApi extends BaseDialogButtonApi {
+export interface DialogNormalButtonSpec extends BaseDialogButtonSpec {
   type: 'submit' | 'cancel' | 'custom';
   text: string;
 }
 
-export interface DialogMenuButtonApi extends BaseDialogButtonApi {
+export interface DialogMenuButtonSpec extends BaseDialogButtonSpec {
   type: 'menu';
   text?: string;
   tooltip?: string;
@@ -27,7 +27,7 @@ export interface DialogMenuButtonApi extends BaseDialogButtonApi {
   items: DialogMenuButtonItemTypes[];
 }
 
-export type DialogButtonApi = DialogNormalButtonApi | DialogMenuButtonApi;
+export type DialogButtonSpec = DialogNormalButtonSpec | DialogMenuButtonSpec;
 
 interface BaseDialogButton {
   name: string;

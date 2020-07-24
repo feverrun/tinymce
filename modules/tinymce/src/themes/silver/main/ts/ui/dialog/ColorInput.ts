@@ -21,7 +21,6 @@ import * as ColorSwatch from '../core/color/ColorSwatch';
 import * as Settings from '../core/color/Settings';
 import { formChangeEvent } from '../general/FormEvents';
 import { renderPanelButton } from '../general/PanelButton';
-import { Omit } from '../Omit';
 
 const colorInputChangeEvent = Id.generate('color-input-change');
 const colorSwatchChangeEvent = Id.generate('color-swatch-change');

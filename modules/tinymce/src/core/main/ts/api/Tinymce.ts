@@ -12,9 +12,9 @@ import BookmarkManager from './dom/BookmarkManager';
 import ControlSelection from './dom/ControlSelection';
 import DomQuery, { DomQueryConstructor } from './dom/DomQuery';
 import DOMUtils from './dom/DOMUtils';
-import EventUtils, { EventUtilsConstructor } from './dom/EventUtils';
+import EventUtils from './dom/EventUtils';
 import RangeUtils from './dom/RangeUtils';
-import ScriptLoader, { ScriptLoaderConstructor } from './dom/ScriptLoader';
+import ScriptLoader from './dom/ScriptLoader';
 import EditorSelection from './dom/Selection';
 import DomSerializer, { DomSerializerSettings } from './dom/Serializer';
 import Sizzle from './dom/Sizzle';
@@ -39,10 +39,8 @@ import Styles from './html/Styles';
 import Writer, { WriterSettings } from './html/Writer';
 import IconManager from './IconManager';
 import NotificationManager from './NotificationManager';
-import { Plugin } from './PluginManager';
 import Resource from './Resource';
 import Shortcuts, { ShortcutsConstructor } from './Shortcuts';
-import { Theme } from './ThemeManager';
 import UndoManager from './UndoManager';
 import Class from './util/Class';
 import Color from './util/Color';
@@ -60,8 +58,10 @@ import URI, { URIConstructor } from './util/URI';
 import VK from './util/VK';
 import XHR from './util/XHR';
 import WindowManager from './WindowManager';
+import PluginManager from './PluginManager';
+import ThemeManager from './ThemeManager';
 
-export interface TinyMCE extends EditorManager {
+interface TinyMCE extends EditorManager {
 
   geom: {
     Rect: Rect;
@@ -86,13 +86,13 @@ export interface TinyMCE extends EditorManager {
   };
 
   dom: {
-    EventUtils: EventUtilsConstructor;
+    EventUtils: EventUtils;
     Sizzle: any;
     DomQuery: DomQueryConstructor;
     TreeWalker: DomTreeWalkerConstructor;
     TextSeeker: (dom: DOMUtils, isBlockBoundary?: (node: Node) => boolean) => TextSeeker;
     DOMUtils: DOMUtils;
-    ScriptLoader: ScriptLoaderConstructor;
+    ScriptLoader: ScriptLoader;
     RangeUtils: (dom: DOMUtils) => RangeUtils;
     Serializer: (settings: DomSerializerSettings, editor?: Editor) => DomSerializer;
     ControlSelection: (selection: EditorSelection, editor: Editor) => ControlSelection;
@@ -130,8 +130,8 @@ export interface TinyMCE extends EditorManager {
   // Global instances
   DOM: DOMUtils;
   ScriptLoader: ScriptLoader;
-  PluginManager: AddOnManager<void | Plugin>;
-  ThemeManager: AddOnManager<Theme>;
+  PluginManager: PluginManager;
+  ThemeManager: ThemeManager;
   IconManager: IconManager;
   Resource: Resource;
 
@@ -156,7 +156,7 @@ export interface TinyMCE extends EditorManager {
   // Legacy browser detection
   isOpera: boolean;
   isWebKit: boolean;
-  isIE: boolean;
+  isIE: false | number;
   isGecko: boolean;
   isMac: boolean;
 }
@@ -261,8 +261,8 @@ const publicApi = {
   // Global instances
   DOM: DOMUtils.DOM,
   ScriptLoader: ScriptLoader.ScriptLoader,
-  PluginManager: AddOnManager.PluginManager,
-  ThemeManager: AddOnManager.ThemeManager,
+  PluginManager,
+  ThemeManager,
   IconManager,
   Resource,
 
@@ -292,4 +292,8 @@ const publicApi = {
   isMac: Env.mac
 };
 
-export const tinymce: TinyMCE = Tools.extend(EditorManager, publicApi);
+const tinymce: TinyMCE = Tools.extend(EditorManager, publicApi);
+export {
+  TinyMCE,
+  tinymce
+};

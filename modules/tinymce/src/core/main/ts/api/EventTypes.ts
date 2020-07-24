@@ -5,11 +5,11 @@
  * For commercial licenses see https://www.tiny.cloud/
  */
 
-import { Types } from '@ephox/bridge';
 import { GetContentArgs, SetContentArgs } from '../content/ContentTypes';
 import { UndoLevel } from '../undo/UndoManagerTypes';
 import Editor from './Editor';
 import { NativeEventMap } from './util/EventDispatcher';
+import { Dialog } from './ui/Ui';
 
 export type ExecCommandEvent = { command: string; ui?: boolean; value?: any };
 
@@ -36,7 +36,7 @@ export type SwitchModeEvent = { mode: string };
 export type AddUndoEvent = { level: UndoLevel; lastLevel: UndoLevel; originalEvent: Event };
 export type UndoRedoEvent = { level: UndoLevel };
 
-export type WindowEvent<T extends Types.Dialog.DialogData> = { dialog: Types.Dialog.DialogInstanceApi<T> };
+export type WindowEvent<T extends Dialog.DialogData> = { dialog: Dialog.DialogInstanceApi<T> };
 
 export type ProgressStateEvent = { state: boolean; time?: number };
 

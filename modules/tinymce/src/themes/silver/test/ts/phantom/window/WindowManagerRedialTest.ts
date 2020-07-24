@@ -16,7 +16,7 @@ UnitTest.asynctest('WindowManager:redial Test', (success, failure) => {
 
   const store = TestHelpers.TestStore();
 
-  const dialogA: Types.Dialog.DialogApi<any> = {
+  const dialogA: Types.Dialog.DialogSpec<any> = {
     title: 'DialogA',
     body: {
       type: 'panel',
@@ -60,7 +60,7 @@ UnitTest.asynctest('WindowManager:redial Test', (success, failure) => {
     }
   };
 
-  const dialogB: Types.Dialog.DialogApi<any> = {
+  const dialogB: Types.Dialog.DialogSpec<any> = {
     title: 'DialogB',
     body: {
       type: 'panel',
@@ -86,7 +86,7 @@ UnitTest.asynctest('WindowManager:redial Test', (success, failure) => {
     }
   };
 
-  const dialogC: Types.Dialog.DialogApi<any> = {
+  const dialogC: Types.Dialog.DialogSpec<any> = {
     title: 'DialogC',
     body: {
       type: 'tabpanel',

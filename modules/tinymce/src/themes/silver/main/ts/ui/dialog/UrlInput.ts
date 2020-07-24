@@ -23,7 +23,6 @@ import * as Icons from '../icons/Icons';
 import ItemResponse from '../menus/item/ItemResponse';
 import * as MenuParts from '../menus/menu/MenuParts';
 import * as NestedMenus from '../menus/menu/NestedMenus';
-import { Omit } from '../Omit';
 import {
   anchorTargetBottom, anchorTargets, anchorTargetTop, filterByQuery, headerTargets, historyTargets, joinMenuLists
 } from '../urlinput/Completions';

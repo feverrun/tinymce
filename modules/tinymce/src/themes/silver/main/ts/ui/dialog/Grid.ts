@@ -9,7 +9,6 @@ import { SimpleSpec } from '@ephox/alloy';
 import { Types } from '@ephox/bridge';
 import { Arr } from '@ephox/katamari';
 import { UiFactoryBackstageShared } from '../../backstage/Backstage';
-import { Omit } from '../Omit';
 
 type GridSpec = Omit<Types.Grid.Grid, 'type'>;
 

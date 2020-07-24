@@ -19,7 +19,7 @@ import { dialogChannel } from './DialogChannels';
 import { renderModalHeader } from './SilverDialogHeader';
 
 export interface WindowExtra {
-  redial?: <T extends Types.Dialog.DialogData>(newConfig: Types.Dialog.DialogApi<T>) => DialogManager.DialogInit<T>;
+  redial?: <T extends Types.Dialog.DialogData>(newConfig: Types.Dialog.DialogSpec<T>) => DialogManager.DialogInit<T>;
   closeWindow: () => void;
 }
 

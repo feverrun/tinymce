@@ -15,7 +15,6 @@ import { renderFormFieldWith, renderLabel } from '../alien/FieldLabeller';
 
 import { RepresentingConfigs } from '../alien/RepresentingConfigs';
 import * as NavigableObject from '../general/NavigableObject';
-import { Omit } from '../Omit';
 
 const platformNeedsSandboxing = !(PlatformDetection.detect().browser.isIE() || PlatformDetection.detect().browser.isEdge());
 

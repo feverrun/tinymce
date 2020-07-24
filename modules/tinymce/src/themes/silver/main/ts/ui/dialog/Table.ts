@@ -5,11 +5,10 @@
  * For commercial licenses see https://www.tiny.cloud/
  */
 
+import { Behaviour, Focusing, SimpleSpec, Tabstopping } from '@ephox/alloy';
 import { Types } from '@ephox/bridge';
-import { UiFactoryBackstageProviders } from '../../backstage/Backstage';
-import { SimpleSpec, Behaviour, Tabstopping, Focusing } from '@ephox/alloy';
 import { Arr } from '@ephox/katamari';
-import { Omit } from '../Omit';
+import { UiFactoryBackstageProviders } from '../../backstage/Backstage';
 
 type TableSpec = Omit<Types.Table.Table, 'type'>;
 

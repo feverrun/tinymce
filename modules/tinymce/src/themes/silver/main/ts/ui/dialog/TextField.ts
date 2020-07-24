@@ -17,7 +17,6 @@ import { renderFormFieldWith, renderLabel } from 'tinymce/themes/silver/ui/alien
 import { UiFactoryBackstageProviders } from '../../backstage/Backstage';
 import * as ReadOnly from '../../ReadOnly';
 import { formChangeEvent, formSubmitEvent } from '../general/FormEvents';
-import { Omit } from '../Omit';
 
 const renderTextField = function (spec: TextField, providersBackstage: UiFactoryBackstageProviders) {
   const pLabel = spec.label.map((label) => renderLabel(label, providersBackstage));

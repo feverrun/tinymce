@@ -207,7 +207,7 @@ UnitTest.asynctest('WindowManager:configurations Test', (success, failure) => {
     'Initial Data test',
     GeneralSteps.sequence([
       Step.sync(function () {
-        const conf: Types.Dialog.DialogApi<any> = {
+        const conf: Types.Dialog.DialogSpec<any> = {
           title: 'test',
           body: {
             type: 'panel',

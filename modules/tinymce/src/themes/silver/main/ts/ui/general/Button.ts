@@ -22,7 +22,6 @@ import { RepresentingConfigs } from '../alien/RepresentingConfigs';
 import { renderIconFromPack } from '../button/ButtonSlices';
 import { getFetch, renderMenuButton, StoragedMenuButton } from '../button/MenuButton';
 import { componentRenderPipeline } from '../menus/item/build/CommonMenuItem';
-import { Omit } from '../Omit';
 import { ToolbarButtonClasses } from '../toolbar/button/ButtonClasses';
 
 type ButtonSpec = Omit<Types.Button.Button, 'type'>;

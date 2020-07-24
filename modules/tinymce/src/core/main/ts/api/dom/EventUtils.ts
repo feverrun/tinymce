@@ -212,14 +212,6 @@ const bindOnReady = function (win, callback, eventUtils) {
   addEvent(win, 'load', readyHandler);
 };
 
-export interface EventUtilsConstructor {
-  readonly prototype: EventUtils;
-
-  Event: EventUtils;
-
-  new (): EventUtils;
-}
-
 /**
  * This class enables you to bind/unbind native events to elements and normalize it's behavior across browsers.
  */

@@ -5,9 +5,9 @@ import { Arr, Optional } from '@ephox/katamari';
 import { components as menuComponents, dom as menuDom } from './MenuParts';
 
 import { forCollection, forHorizontalCollection, forSwatch, forToolbar } from './MenuStructures';
-import { SingleMenuItemApi } from './SingleMenuTypes';
+import { SingleMenuItemSpec } from './SingleMenuTypes';
 
-export const menuHasIcons = (xs: Array<SingleMenuItemApi | InlineContent.AutocompleterItemApi>) => Arr.exists(xs, (item) => 'icon' in item && item.icon !== undefined);
+export const menuHasIcons = (xs: Array<SingleMenuItemSpec | InlineContent.AutocompleterItemSpec>) => Arr.exists(xs, (item) => 'icon' in item && item.icon !== undefined);
 
 export interface PartialMenuSpec {
   value: string;

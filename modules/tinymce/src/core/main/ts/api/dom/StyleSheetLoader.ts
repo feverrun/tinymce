@@ -23,12 +23,12 @@ export interface StyleSheetLoader {
 }
 
 export interface StyleSheetLoaderSettings {
-  maxLoadTime: number;
-  contentCssCors: boolean;
-  referrerPolicy: ReferrerPolicy;
+  maxLoadTime?: number;
+  contentCssCors?: boolean;
+  referrerPolicy?: ReferrerPolicy;
 }
 
-export function StyleSheetLoader(documentOrShadowRoot: Document | ShadowRoot, settings: Partial<StyleSheetLoaderSettings> = {}): StyleSheetLoader {
+export function StyleSheetLoader(documentOrShadowRoot: Document | ShadowRoot, settings: StyleSheetLoaderSettings = {}): StyleSheetLoader {
   let idCount = 0;
   const loadedStates = {};
 

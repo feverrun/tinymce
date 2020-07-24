@@ -327,9 +327,9 @@ function AddOnManager<T>(): AddOnManager<T> {
 }
 
 namespace AddOnManager {
-  export let language;
-  export let languageLoad;
-  export let baseURL;
+  export let language: string;
+  export let languageLoad: boolean;
+  export let baseURL: string;
   export const PluginManager: AddOnManager<any> = AddOnManager();
   export const ThemeManager: AddOnManager<any> = AddOnManager();
 }

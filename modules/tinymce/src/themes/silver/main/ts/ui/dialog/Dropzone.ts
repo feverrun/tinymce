@@ -20,7 +20,6 @@ import { DisablingConfigs } from '../alien/DisablingConfigs';
 import { renderFormFieldWith, renderLabel } from '../alien/FieldLabeller';
 import { RepresentingConfigs } from '../alien/RepresentingConfigs';
 import { formChangeEvent } from '../general/FormEvents';
-import { Omit } from '../Omit';
 
 const extensionsAccepted = '.jpg,.jpeg,.png,.gif';
 

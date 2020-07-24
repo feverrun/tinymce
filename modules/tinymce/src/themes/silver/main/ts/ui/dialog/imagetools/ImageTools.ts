@@ -15,7 +15,6 @@ import { SugarElement } from '@ephox/sugar';
 
 import { UiFactoryBackstageProviders } from 'tinymce/themes/silver/backstage/Backstage';
 import { ComposingConfigs } from 'tinymce/themes/silver/ui/alien/ComposingConfigs';
-import { Omit } from '../../Omit';
 import * as EditPanel from './EditPanel';
 import * as ImagePanel from './ImagePanel';
 import * as ImageToolsEvents from './ImageToolsEvents';

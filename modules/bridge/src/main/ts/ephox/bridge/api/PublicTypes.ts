@@ -1,42 +1,64 @@
-import { BarApi } from '../components/dialog/Bar';
-import { ButtonApi } from '../components/dialog/Button';
-import { CheckboxApi } from '../components/dialog/Checkbox';
-import { ColorInputApi } from '../components/dialog/ColorInput';
-import { ColorPickerApi } from '../components/dialog/ColorPicker';
-import { DialogApi, DialogButtonApi } from '../components/dialog/Dialog';
-import { DropZoneApi } from '../components/dialog/Dropzone';
-import { GridApi } from '../components/dialog/Grid';
-import { IframeApi } from '../components/dialog/Iframe';
-import { InputApi } from '../components/dialog/Input';
-import { SelectBoxApi } from '../components/dialog/SelectBox';
-import { SizeInputApi } from '../components/dialog/SizeInput';
-import { TextAreaApi } from '../components/dialog/Textarea';
-import { UrlInputApi } from '../components/dialog/UrlInput';
-import { CustomEditorApi } from '../components/dialog/CustomEditor';
-import { ImageToolsApi } from '../components/dialog/ImageTools';
-import { CollectionApi } from '../components/dialog/Collection';
-import { LabelApi } from '../components/dialog/Label';
+import { AlertBannerSpec } from '../components/dialog/AlertBanner';
+import { BarSpec } from '../components/dialog/Bar';
+import { BodyComponentSpec } from '../components/dialog/BodyComponent';
+import { ButtonSpec } from '../components/dialog/Button';
+import { CheckboxSpec } from '../components/dialog/Checkbox';
+import { CollectionSpec } from '../components/dialog/Collection';
+import { ColorInputSpec } from '../components/dialog/ColorInput';
+import { ColorPickerSpec } from '../components/dialog/ColorPicker';
+import { CustomEditorInit, CustomEditorSpec } from '../components/dialog/CustomEditor';
+import { DialogButtonSpec, DialogData, DialogInstanceApi, DialogSpec } from '../components/dialog/Dialog';
+import { DropZoneSpec } from '../components/dialog/Dropzone';
+import { GridSpec } from '../components/dialog/Grid';
+import { HtmlPanelSpec } from '../components/dialog/HtmlPanel';
+import { IframeSpec } from '../components/dialog/Iframe';
+import { ImageToolsSpec } from '../components/dialog/ImageTools';
+import { InputSpec } from '../components/dialog/Input';
+import { LabelSpec } from '../components/dialog/Label';
+import { PanelSpec } from '../components/dialog/Panel';
+import { SelectBoxItemSpec, SelectBoxSpec } from '../components/dialog/SelectBox';
+import { SizeInputSpec } from '../components/dialog/SizeInput';
+import { TableSpec } from '../components/dialog/Table';
+import { TabPanelSpec, TabSpec } from '../components/dialog/TabPanel';
+import { TextAreaSpec } from '../components/dialog/Textarea';
+import { UrlDialogButtonSpec, UrlDialogInstanceApi, UrlDialogMessage, UrlDialogSpec } from '../components/dialog/UrlDialog';
+import { UrlInputSpec } from '../components/dialog/UrlInput';
 
 // These are the types that are exposed though a public end user api
 
 export {
-  BarApi,
-  ButtonApi,
-  CheckboxApi,
-  CollectionApi,
-  ColorInputApi,
-  ColorPickerApi,
-  DialogApi,
-  DialogButtonApi,
-  DropZoneApi,
-  GridApi,
-  IframeApi,
-  InputApi,
-  SelectBoxApi,
-  SizeInputApi,
-  TextAreaApi,
-  UrlInputApi,
-  CustomEditorApi,
-  ImageToolsApi,
-  LabelApi
+  AlertBannerSpec,
+  BarSpec,
+  BodyComponentSpec,
+  ButtonSpec,
+  CheckboxSpec,
+  CollectionSpec,
+  ColorInputSpec,
+  ColorPickerSpec,
+  CustomEditorSpec,
+  CustomEditorInit,
+  DialogData,
+  DialogSpec,
+  DialogButtonSpec,
+  DialogInstanceApi,
+  DropZoneSpec,
+  GridSpec,
+  HtmlPanelSpec,
+  IframeSpec,
+  ImageToolsSpec,
+  InputSpec,
+  LabelSpec,
+  PanelSpec,
+  SelectBoxSpec,
+  SelectBoxItemSpec,
+  SizeInputSpec,
+  TableSpec,
+  TabSpec,
+  TabPanelSpec,
+  TextAreaSpec,
+  UrlInputSpec,
+  UrlDialogSpec,
+  UrlDialogButtonSpec,
+  UrlDialogInstanceApi,
+  UrlDialogMessage
 };

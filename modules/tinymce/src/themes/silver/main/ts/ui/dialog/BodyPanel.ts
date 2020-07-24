@@ -15,7 +15,6 @@ import { RepresentingConfigs } from '../alien/RepresentingConfigs';
 import * as FormValues from '../general/FormValues';
 import * as NavigableObject from '../general/NavigableObject';
 import { interpretInForm } from '../general/UiFactory';
-import { Omit } from '../Omit';
 
 export type BodyPanelSpec = Omit<Types.Dialog.Panel, 'type'>;
 

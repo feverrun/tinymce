@@ -7,7 +7,6 @@
 
 import { Container as AlloyContainer, SketchSpec, Behaviour, Tabstopping, Focusing } from '@ephox/alloy';
 import { Types } from '@ephox/bridge';
-import { Omit } from '../Omit';
 
 type HtmlPanelSpec = Omit<Types.HtmlPanel.HtmlPanel, 'type'>;
 

@@ -8,15 +8,6 @@
 import { Fun, Obj } from '@ephox/katamari';
 import Tools from './Tools';
 
-// InputEvent is experimental so we don't have an actual type
-// See https://developer.mozilla.org/en-US/docs/Web/API/InputEvent
-export interface InputEvent extends Event {
-  readonly data: string;
-  readonly dataTransfer: DataTransfer;
-  readonly inputType: string;
-  readonly isComposing: boolean;
-}
-
 export interface NativeEventMap {
   'beforepaste': Event;
   'blur': FocusEvent;

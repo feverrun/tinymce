@@ -1,24 +1,24 @@
 import { FieldSchema, ValueSchema } from '@ephox/boulder';
 import { Fun, Result } from '@ephox/katamari';
-import { BodyComponentApi as BodyComponentApiType } from './BodyComponent';
+import { BodyComponentSpec as BodyComponentApiType } from './BodyComponent';
 import * as FooterButton from './FooterButton';
-import { Panel as PanelType, PanelApi as PanelApiType, panelSchema } from './Panel';
-import { Tab as TabType, TabApi as TabApiType, TabPanel as TabPanelType, TabPanelApi as TabPanelApiType, tabPanelSchema } from './TabPanel';
+import { Panel as PanelType, PanelSpec as PanelSpecType, panelSchema } from './Panel';
+import { Tab as TabType, TabSpec as TabSpecType, TabPanel as TabPanelType, TabPanelSpec as TabPanelSpecType, tabPanelSchema } from './TabPanel';
 
 export type DialogMenuButtonItemTypes = FooterButton.DialogMenuButtonItemTypes;
 export type SuccessCallback = (menu: string | DialogMenuButtonItemTypes[]) => void;
 
-export type DialogNormalButtonApi = FooterButton.DialogNormalButtonApi;
-export type DialogMenuButtonApi = FooterButton.DialogMenuButtonApi;
-export type DialogButtonApi = FooterButton.DialogButtonApi;
+export type DialogNormalButtonSpec = FooterButton.DialogNormalButtonSpec;
+export type DialogMenuButtonSpec = FooterButton.DialogMenuButtonSpec;
+export type DialogButtonSpec = FooterButton.DialogButtonSpec;
 
 // For consistency with api/Types.ts this should perhaps be in a namespace (e.g. Types.Dialog.Panels.*)
 // but there are many many references to it already / shrug
-export type PanelApi = PanelApiType;
+export type PanelSpec = PanelSpecType;
 export type Panel = PanelType;
-export type TabPanelApi = TabPanelApiType;
+export type TabPanelSpec = TabPanelSpecType;
 export type TabPanel = TabPanelType;
-export type TabApi = TabApiType;
+export type TabSpec = TabSpecType;
 export type Tab = TabType;
 
 export type BodyComponentApi = BodyComponentApiType;
@@ -32,7 +32,7 @@ export interface DialogInstanceApi<T extends DialogData> {
   disable: (name: string) => void;
   focus: (name: string) => void;
   showTab: (name: string) => void;
-  redial: (nu: DialogApi<T>) => void;
+  redial: (nu: DialogSpec<T>) => void;
   enable: (name: string) => void;
   block: (msg: string) => void;
   unblock: () => void;
@@ -61,11 +61,11 @@ export type DialogCancelHandler<T> = (api: DialogInstanceApi<T>) => void;
 export type DialogTabChangeHandler<T> = (api: DialogInstanceApi<T>, details: DialogTabChangeDetails) => void;
 
 export type DialogSize = 'normal' | 'medium' | 'large';
-export interface DialogApi<T extends DialogData> {
+export interface DialogSpec<T extends DialogData> {
   title: string;
   size?: DialogSize;
-  body: TabPanelApi | PanelApi;
-  buttons: DialogButtonApi[];
+  body: TabPanelSpec | PanelSpec;
+  buttons: DialogButtonSpec[];
   initialData?: T;
 
   // Gets fired when a component within the dialog has an action used by some components
@@ -126,4 +126,5 @@ export const dialogSchema = ValueSchema.objOf([
   FieldSchema.defaulted('onTabChange', Fun.noop)
 ]);
 
-export const createDialog = <T>(spec: DialogApi<T>): Result<Dialog<T>, ValueSchema.SchemaError<any>> => ValueSchema.asRaw('dialog', dialogSchema, spec);
+export const createDialog = <T>(spec: DialogSpec<T>): Result<Dialog<T>, ValueSchema.SchemaError<any>> =>
+  ValueSchema.asRaw('dialog', dialogSchema, spec);

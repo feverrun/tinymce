@@ -1,13 +1,13 @@
 import {
   createSidebar,
   Sidebar,
-  SidebarApi,
+  SidebarSpec,
   SidebarInstanceApi
 } from '../components/sidebar/Sidebar';
 
 export {
   createSidebar,
   Sidebar,
-  SidebarApi,
+  SidebarSpec,
   SidebarInstanceApi
 };
